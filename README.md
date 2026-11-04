@@ -66,25 +66,44 @@ Other MS Plus models and firmware versions have not been hardware validated.
 
 ## Repository status and downloads
 
-The `source/manifest.playground.json` identity uses filename `XXF1176` and
-effect ID `0x01001000`. That is an **own-pedal playground identity** and must
-not be distributed as a public installable effect because it can collide with
-other community builds.
+The public identity is filename `MBF1176`, display name `FET1176`, and effect
+ID `0x01004000`. The top byte (`0x01`) places the effect in the MS-60B+
+Dynamics category. The author coordinate (`low16 0x4000`) is the first value
+in the project's self-reserved `MB` block, `0x4000–0x43FF`.
 
-The source and documentation are public-ready. A downloadable ZD2/ZIC pair will
-be added only after FET1176 receives a permanent community author prefix and ID
-range. See [RELEASING.md](docs/RELEASING.md).
+See [RELEASING.md](docs/RELEASING.md) for the identity rationale and collision
+policy. Always compare a download's checksum with the release notes before
+installing it.
+
+### Version 0.22 files
+
+- [`MBF1176.ZD2`](dist/MBF1176.ZD2) — effect container
+- [`MBF1176.ZIC`](dist/MBF1176.ZIC) — matching browser icon
+
+SHA-256:
+
+```text
+90DBC1EB286146142DC7D26F2BB22349530C7808C6F81907EAA3864EC2EFCC58  MBF1176.ZD2
+A8AB84BA5C38B10AFCDC3A90A8CF3C548087DE7C7BA2A26D737F487EE665027A  MBF1176.ZIC
+```
+
+The DSP and icon are the same hardware-tested 0.22 implementation; this public
+artifact differs in its permanent ID, filename, and badge. The complete clean
+build validation is in
+[BUILD-REPORT-0.22-PERMANENT.md](docs/BUILD-REPORT-0.22-PERMANENT.md).
 
 ## Building for your own pedal
 
 FET1176 is built with the clean-room toolchain from
-[stomphacks](https://github.com/thammer/stomphacks). The included playground
-manifest is suitable only for personal development and testing.
+[stomphacks](https://github.com/thammer/stomphacks).
 
 1. Clone `stomphacks` and install its documented Python and TI C6000 build
    dependencies.
-2. Copy the three files from `source/` into `stomphacks/effects/fet1176/`.
-3. Rename `manifest.playground.json` to `manifest.json`.
+2. Copy the files from `source/` into `stomphacks/effects/fet1176/`.
+3. Add the `matheusbrasil` / `MB` / `0x4000–0x43FF` author row described in
+   [RELEASING.md](docs/RELEASING.md) to your local
+   `ids/effect-authors.json`. This is required because the toolchain validates
+   author namespaces.
 4. From the `stomphacks` root, build with:
 
    ```text
@@ -94,7 +113,7 @@ manifest is suitable only for personal development and testing.
 5. Confirm every line of the generated `REPORT.md` passes.
 6. Follow [SAFETY.md](SAFETY.md) exactly before connecting a pedal.
 
-The hardware-validated playground build report is preserved at
+The hardware-validated development build report is preserved at
 [docs/BUILD-REPORT-0.22.md](docs/BUILD-REPORT-0.22.md).
 
 ## Clean-room provenance
