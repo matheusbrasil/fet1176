@@ -1,0 +1,11 @@
+build/
+*.obj
+*.out
+*.map
+*.asm
+*.dis
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
+

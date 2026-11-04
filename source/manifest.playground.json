@@ -1,0 +1,28 @@
+{
+  "name": "FET1176",
+  "filename": "XXF1176",
+  "id": "01001000",
+  "allow_any_id": true,
+  "target": 160,
+  "version": "0.22",
+  "display": "FET1176",
+  "badge": "XX",
+  "icon_renderer": "fet1176_icon.py",
+  "icon_invert": true,
+  "description": "Clean-room 1176-style FET compressor adapted for bass, with additive parallel dry level.",
+  "dspload": 30,
+  "kernel": "fet1176.c",
+  "kernel_section": "text",
+  "opt_level": 1,
+  "state_bytes": 108,
+  "scaffold": "cleanroom",
+  "params": [
+    {"name": "IN", "max": 100, "default": 75, "explanation": "Compression drive: 0..60 dB threshold shift; audio level stays compensated."},
+    {"name": "OUT", "max": 100, "default": 55, "explanation": "Make-up gain: -30..+30 dB; 50 is unity."},
+    {"name": "DRY", "max": 100, "default": 30, "explanation": "Additive clean level: 0 is wet only, 100 adds dry at unity."},
+    {"name": "RATIO", "values": ["4:1", "8:1", "12:1", "20:1"], "default": 0},
+    {"name": "ATACK", "max": 100, "default": 70, "explanation": "FET attack timing: 2..80 ms, fast to slow."},
+    {"name": "RELSE", "max": 100, "default": 25, "explanation": "Release: 50..1100 ms, fast to slow."},
+    {"name": "HPF", "max": 100, "default": 10, "explanation": "Detector high-pass filter: 20..500 Hz."}
+  ]
+}
