@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.23 — 2026-11-08
+
+- Renamed the public effect from `FET1176` to `FETCOMP`.
+- Adopted Thomas Hammer's assigned `matheusbrasil` range `0xA000–0xA03F`.
+- Changed the full Dynamics ID to `0x0100A000` and flash filename to `MBFETCMP`.
+- Updated the monochrome icon wordmark to `FETCOMP` without changing the DSP.
+
 ## 0.22 — 2026-11-04
 
 - Added the hardware-validated dark-panel ZIC theme flag.

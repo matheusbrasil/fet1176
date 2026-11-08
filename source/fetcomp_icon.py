@@ -1,4 +1,4 @@
-"""Original monochrome FET1176 artwork for the two MS+ icon frames."""
+"""Original monochrome FETCOMP artwork for the two MS+ icon frames."""
 
 import math
 
@@ -9,9 +9,10 @@ _GLYPHS = {
     "F": ("11111", "10000", "10000", "11110", "10000", "10000", "10000"),
     "E": ("11111", "10000", "10000", "11110", "10000", "10000", "11111"),
     "T": ("11111", "00100", "00100", "00100", "00100", "00100", "00100"),
-    "1": ("00100", "01100", "00100", "00100", "00100", "00100", "01110"),
-    "7": ("11111", "00001", "00010", "00100", "01000", "01000", "01000"),
-    "6": ("01110", "10000", "10000", "11110", "10001", "10001", "01110"),
+    "C": ("01111", "10000", "10000", "10000", "10000", "10000", "01111"),
+    "O": ("01110", "10001", "10001", "10001", "10001", "10001", "01110"),
+    "M": ("10001", "11011", "10101", "10101", "10001", "10001", "10001"),
+    "P": ("11110", "10001", "10001", "11110", "10000", "10000", "10000"),
 }
 
 
@@ -31,7 +32,7 @@ def _bold_wordmark(draw, y, text, width):
 
 
 def draw_icon(image, manifest):
-    """Draw the minimal black-face FET1176/VU design at either native size."""
+    """Draw the minimal black-face FETCOMP/VU design at either native size."""
     w, h = image.size
     draw = ImageDraw.Draw(image)
     scale = w / 72.0
