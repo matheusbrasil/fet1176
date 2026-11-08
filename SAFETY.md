@@ -7,7 +7,7 @@ the pedal in an unsafe state.
 
 The authoritative and maintained procedure is the
 [stomphacks safety guide](https://github.com/thammer/stomphacks/blob/main/SAFETY.md).
-Read it completely before installing FET1176.
+Read it completely before installing FETCOMP.
 
 At minimum:
 

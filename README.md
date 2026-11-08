@@ -1,14 +1,14 @@
-# FET1176
+# FETCOMP
 
-![FET1176 pedal icon](assets/fet1176-editor.png)
+![FETCOMP pedal icon](assets/fetcomp-editor.png)
 
-FET1176 is a clean-room, bass-focused FET compressor for the **ZOOM MS-60B+**.
+FETCOMP is a clean-room, bass-focused FET compressor for the **ZOOM MS-60B+**.
 It combines the fast, assertive gain control associated with classic 1176-style
 compressors with bass-friendly parallel dry level and a detector high-pass
 filter.
 
-Version 0.22 has been built, installed, and tested on an MS-60B+ running
-firmware 1.20. Audio processing, bypass, parameter editing, default values,
+The DSP core used by version 0.23 was built, installed, and tested on an
+MS-60B+ running firmware 1.20. Audio processing, bypass, parameter editing, default values,
 sidechain HPF smoothing, and the dark-panel display theme have all been checked
 on hardware.
 
@@ -19,7 +19,7 @@ on hardware.
 
 ## What it does
 
-FET1176 uses a peak detector, program-dependent gain reduction, four ratio
+FETCOMP uses a peak detector, program-dependent gain reduction, four ratio
 curves, a soft knee, independent attack and release controls, and a detector
 HPF. The `IN` control drives the detector threshold rather than simply boosting
 the audio path, so increasing compression does not automatically create an
@@ -66,48 +66,48 @@ Other MS Plus models and firmware versions have not been hardware validated.
 
 ## Repository status and downloads
 
-The public identity is filename `MBF1176`, display name `FET1176`, and effect
-ID `0x01004000`. The top byte (`0x01`) places the effect in the MS-60B+
-Dynamics category. The author coordinate (`low16 0x4000`) is the first value
-in the project's self-reserved `MB` block, `0x4000–0x43FF`.
+The public identity is filename `MBFETCMP`, display name `FETCOMP`, and effect
+ID `0x0100A000`. The top byte (`0x01`) places the effect in the MS-60B+
+Dynamics category. Thomas Hammer assigned the author nickname `matheusbrasil`
+the low-16 range `0xA000–0xA03F`.
 
 See [RELEASING.md](docs/RELEASING.md) for the identity rationale and collision
 policy. Always compare a download's checksum with the release notes before
 installing it.
 
-### Version 0.22 files
+### Version 0.23 files
 
-- [`MBF1176.ZD2`](dist/MBF1176.ZD2) — effect container
-- [`MBF1176.ZIC`](dist/MBF1176.ZIC) — matching browser icon
+- [`MBFETCMP.ZD2`](dist/MBFETCMP.ZD2) — effect container
+- [`MBFETCMP.ZIC`](dist/MBFETCMP.ZIC) — matching browser icon
 
 SHA-256:
 
 ```text
-90DBC1EB286146142DC7D26F2BB22349530C7808C6F81907EAA3864EC2EFCC58  MBF1176.ZD2
-A8AB84BA5C38B10AFCDC3A90A8CF3C548087DE7C7BA2A26D737F487EE665027A  MBF1176.ZIC
+3EC838D28B499AE6F040994583A727F66F0EF01F9D96D28CFE05DC61562629BE  MBFETCMP.ZD2
+FD1C707893D7AAE96EDD95EA9659071F7FF96CD20B4922F6EF20992BAF59F2DE  MBFETCMP.ZIC
 ```
 
-The DSP and icon are the same hardware-tested 0.22 implementation; this public
-artifact differs in its permanent ID, filename, and badge. The complete clean
-build validation is in
-[BUILD-REPORT-0.22-PERMANENT.md](docs/BUILD-REPORT-0.22-PERMANENT.md).
+The DSP is unchanged from the hardware-tested 0.22 implementation. Version
+0.23 changes the assigned identity, public effect name, filename, and icon
+wordmark. Its clean build validation is in
+[BUILD-REPORT-0.23.md](docs/BUILD-REPORT-0.23.md).
 
 ## Building for your own pedal
 
-FET1176 is built with the clean-room toolchain from
+FETCOMP is built with the clean-room toolchain from
 [stomphacks](https://github.com/thammer/stomphacks).
 
 1. Clone `stomphacks` and install its documented Python and TI C6000 build
    dependencies.
-2. Copy the files from `source/` into `stomphacks/effects/fet1176/`.
-3. Add the `matheusbrasil` / `MB` / `0x4000–0x43FF` author row described in
+2. Copy the files from `source/` into `stomphacks/effects/fetcomp/`.
+3. Add the `matheusbrasil` / `MB` / `0xA000–0xA03F` author row described in
    [RELEASING.md](docs/RELEASING.md) to your local
    `ids/effect-authors.json`. This is required because the toolchain validates
    author namespaces.
 4. From the `stomphacks` root, build with:
 
    ```text
-   .venv/Scripts/python.exe tools/zd2_make_effect.py effects/fet1176/manifest.json
+   .venv/Scripts/python.exe tools/zd2_make_effect.py effects/fetcomp/manifest.json
    ```
 
 5. Confirm every line of the generated `REPORT.md` passes.
@@ -128,7 +128,7 @@ Technical details are in [docs/TECHNICAL.md](docs/TECHNICAL.md).
 
 ## License and trademarks
 
-FET1176 source and original artwork are released under the MIT License. See
+FETCOMP source and original artwork are released under the MIT License. See
 [LICENSE](LICENSE).
 
 ZOOM and MS-60B+ are trademarks of their respective owner. 1176, UREI,
@@ -138,7 +138,8 @@ affiliated with or endorsed by any of them.
 
 ## Acknowledgements
 
-- [stomphacks](https://github.com/thammer/stomphacks) — clean-room MS Plus
+- [Thomas Hammer / stomphacks](https://github.com/thammer/stomphacks) —
+  assigned the community author ID range and created the clean-room MS Plus
   effect build system and safety tooling
 - [zoom-zt2](https://github.com/mungewell/zoom-zt2) — ZD2/ZIC format and pedal
   communication research

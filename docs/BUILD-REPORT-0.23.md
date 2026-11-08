@@ -1,22 +1,22 @@
-# Build report: FET1176 (0x01004000)
+# Build report: FETCOMP (0x0100A000)
 
 Built by tools/zd2_make_effect.py from manifest.json; scaffold: CLEAN-ROOM (tools/zd2_cleanroom.py), container synthesized from scratch (tools/zd2_from_scratch.py).
 
-- entry: e_entry = Dll_FET1176 @ 0xa60; audio fn Fx_SFX_FET1176 @ 0x0 (text)
+- entry: e_entry = Dll_FETCOMP @ 0xa60; audio fn Fx_SFX_FETCOMP @ 0x0 (text)
 - relocs: 24, all ABS32/ABS_L16/ABS_H16
 - sections: ['.const', '.text']; .text 3744 B
 - param table: 9 entries match the manifest + ABI doc; end marker on last param
 - selector labels: RATIO = 4:1/8:1/12:1/20:1 (w9 -> Aw_P<k>_str, 8-byte stride, NUL-terminated)
 - imageinfo: {24,30,->pic} + zero tail; pic blank (92 B, generic geometry)
 - _Coe: 16 words; defaults match manifest (default/max as float32); unassigned slots zero
-- .text: all 12 generated functions carry their landmark instructions (full dump: MBF1176.text.dis)
+- .text: all 12 generated functions carry their landmark instructions (full dump: MBFETCMP.text.dis)
 - provenance: generated blob + from-scratch container; no stock file enters the build
 - kernel: ~3116 B in .text (upper size bound); SAFE-DSP ok (leaf, no stack, no callee-saved regs)
-- icon: 2 fresh frames (drawn here), custom renderer fet1176_icon.py, panel theme dark/white-controls, structure invariants OK
+- icon: 2 fresh frames (drawn here), custom renderer fetcomp_icon.py, panel theme dark/white-controls, structure invariants OK
 - container ICON: the drawn ZIC frame placed
 - container INFO dspload set to 30.00 raw = 11.1% of the 270 budget (container default kept otherwise)
 - blob stripped (verified): 9284 -> 7285 B (-21.5%), removed .strtab, .symtab
-- container: id 0x01004000, target 0x00a0, name 'FET1176', 7-param PRME/PRMJ, TXE1/TXJ1 set, CRC 0xdb9a14ee, envelope invariants OK
+- container: id 0x0100A000, target 0x00a0, name 'FETCOMP', 7-param PRME/PRMJ, TXE1/TXJ1 set, CRC 0xcb05464d, envelope invariants OK
 
 ## Parameters
 
@@ -32,9 +32,9 @@ Built by tools/zd2_make_effect.py from manifest.json; scaffold: CLEAN-ROOM (tool
 
 ## Files
 
-- `build/MBF1176.ZD2` + `build/MBF1176.ZIC`: the upload pair
-- `build/MBF1176.audio.dis`: C kernel disassembly (review)
-- `build/MBF1176.text.dis`: full generated .text (review: every function in it is generated)
+- `build/MBFETCMP.ZD2` + `build/MBFETCMP.ZIC`: the upload pair
+- `build/MBFETCMP.audio.dis`: C kernel disassembly (review)
+- `build/MBFETCMP.text.dis`: full generated .text (review: every function in it is generated)
 
 ## Reminders
 

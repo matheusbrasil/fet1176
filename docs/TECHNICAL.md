@@ -2,7 +2,7 @@
 
 ## Signal path
 
-FET1176 processes stereo blocks in place at 44.1 kHz using the MS Plus C674x
+FETCOMP processes stereo blocks in place at 44.1 kHz using the MS Plus C674x
 effect ABI. The detector receives the mono sum of the two channels, passes it
 through a compact two-biquad detector voicing model and a user-controlled
 second-order high-pass filter, then feeds a peak envelope follower.
@@ -50,7 +50,7 @@ on the MS-60B+.
 
 ## Validation
 
-Hardware observations for version 0.22 include:
+Hardware observations for the unchanged DSP core in version 0.22 include:
 
 - Exact bypass at `IN 0`, `OUT 50`, `DRY 0`
 - Smooth IN, OUT, attack, release, dry, and HPF response

@@ -2,7 +2,7 @@
 #include <c6x.h>
 #include "sh_params.h"
 
-/* FET1176: clean-room 1176-style core, arranged as a leaf/frame-free C674x kernel. */
+/* FETCOMP: clean-room 1176-style core, arranged as a leaf/frame-free C674x kernel. */
 #define RECIP(x,r) { float _x=(x),_r=_rcpsp(_x); (r)=_r*(2.0f-_x*_r); }
 #define EXP2F(x,r) { int _n=(int)(x); float _t; union{uint32_t u;float f;} _s; \
  if((x)<0.0f&&(float)_n>(x))--_n; _t=(x)-(float)_n; \
